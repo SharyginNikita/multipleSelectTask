@@ -27,24 +27,6 @@ module.exports = {
                 }],
             },
             {
-                test: /\.js$/,
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            cacheDirectory: true,
-                            plugins: [
-                                "@babel/plugin-transform-runtime",
-                                "@babel/plugin-transform-spread",
-                            ],
-                        },
-                    },
-                    {
-                        loader: "eslint-loader"
-                    }
-                ]
-            },
-            {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     'file-loader',
@@ -73,4 +55,11 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin()
     ],
+    output: {
+        path: path.resolve(__dirname, './public/js'),
+        filename: 'select.js',
+        library: "select.js",
+        libraryTarget: "umd",
+        umdNamedDefine: true,
+    },
 };

@@ -140,7 +140,7 @@ exports.clear = clear;
 function watcher() {
     watch(`${dir.pug}**/*.pug`, series(buildPug, reload));
     watch(`${dir.scss}**/*.scss`, series(buildScss, reload));
-    watch([`${dir.js}`, `${dir.vue}`], series(buildJsDev, reload));
+    watch([`./src/js/**/*`, `${dir.vue}`], series(buildJsDev, reload));
     watch(`${dir.images}**/*`, series(buildImages, reload));
     watch(`${dir.fonts}`, series(buildFonts, reload));
 }
