@@ -1,0 +1,21 @@
+@use '../utils/vars' as global;
+
+.main {
+    display: flex;
+
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: center;
+
+    width: 100%;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        width: 100%;
+        max-width: global.$width-container;
+    }
+}
+
+
