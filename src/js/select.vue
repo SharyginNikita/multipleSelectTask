@@ -20,11 +20,6 @@ export default {
           this.lastSelected = this.selected;
         }
 
-        let arrMore = [];
-        value.forEach(option => {
-          arrMore.push(option.id);
-        });
-
         if (this.selected.length < this.lastSelected.length) {
           let arrLess = [];
           let diff = this.lastSelected.filter(x => !this.selected.includes(x));
@@ -33,6 +28,10 @@ export default {
           });
           this.$parent.$emit("changeSelectedLess", arrLess);
         } else {
+          let arrMore = [];
+          value.forEach(option => {
+            arrMore.push(option.id);
+          });
           this.$parent.$emit("changeSelectedMore", arrMore);
         }
       }
