@@ -23,7 +23,7 @@ Start template (Gulp + Webpack) for Pug, SCSS, JS, Vue
 
 
 ## Quasar selects docs
-    https://quasar.dev/vue-components/select
+    [Quasar select component](https://quasar.dev/vue-components/select) ````https://quasar.dev/vue-components/select````
 
 
 
