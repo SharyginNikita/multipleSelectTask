@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       selected: [],
+      lastSelected: [],
       currentOpt: JSON.parse(JSON.stringify(this.options))
     };
   },
@@ -15,15 +16,25 @@ export default {
       set(value) {
         this.selected = value;
 
-        let arr = [];
-        value.forEach(option => {
-          arr.push(option.id);
-        });
-        console.log(arr);
+        if (this.lastSelected.length === 0) {
+          this.lastSelected = this.selected;
+        }
 
-        //this.$parent.$emit("deleteSelected", arr);
-        
-        this.$parent.$emit("changeSelected", arr);
+        let arrMore = [];
+        value.forEach(option => {
+          arrMore.push(option.id);
+        });
+
+        if (this.selected.length < this.lastSelected.length) {
+          let arrLess = [];
+          let diff = this.lastSelected.filter(x => !this.selected.includes(x));
+          diff.forEach(option => {
+            arrLess.push(option.id);
+          });
+          this.$parent.$emit("changeSelectedLess", arrLess);
+        } else {
+          this.$parent.$emit("changeSelectedMore", arrMore);
+        }
       }
     }
   },
@@ -32,12 +43,16 @@ export default {
   watch: {
     options: {
       handler: function(val) {
-        console.log("working?");
         this.currentOpt = JSON.parse(JSON.stringify(val));
+
         this.selected.forEach(desc => {
           let test = this.currentOpt.find(prop => prop.desc === desc.desc);
           this.$set(test, "inactive", false);
         });
+
+        if (this.lastSelected.length !== this.selected.length) {
+          this.lastSelected = this.selected;
+        }
       },
       deep: true
     }

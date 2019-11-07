@@ -37,21 +37,20 @@ export default {
       selected: []
     };
   },
-  computed: {
-    computedOptions() {
-      // return this.options.filter(option => !this.selected.includes(option));
-      return this.options;
-    }
-  },
    mounted() {
-    this.$on("changeSelected", optionsIds => {
+    this.$on("changeSelectedMore", optionsIds => {
 
       optionsIds.forEach(id => {
         let test = this.options.find(prop => prop.id === id);
         this.$set(test, 'inactive', true);
       })
-      //let test = this.options.find(prop => prop.id === option.id);
-      //this.options = options;
+    });
+
+    this.$on("changeSelectedLess", optionsIds => {
+      optionsIds.forEach(id => {
+        let test = this.options.find(prop => prop.id === id);
+        this.$set(test, 'inactive', false);
+      })
     });
   }
 };
@@ -59,10 +58,10 @@ export default {
 
 <template lang="pug">
     .wrapper
-        selectQ(:options="computedOptions")
-        selectQ(:options="computedOptions")
-        selectQ(:options="computedOptions")
-        selectQ(:options="computedOptions")
+        selectQ(:options="options")
+        selectQ(:options="options")
+        selectQ(:options="options")
+        selectQ(:options="options")
 </template>
 
 <style lang="scss">
