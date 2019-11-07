@@ -27,4 +27,6 @@ export default class Select {
     }
 }
 
+
+
 const paymentApp = new Select('#select-widget');
