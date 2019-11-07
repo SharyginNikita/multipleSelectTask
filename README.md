@@ -21,12 +21,9 @@ Start template (Gulp + Webpack) for Pug, SCSS, JS, Vue
 * test (Линтер pug,scss)
 * Отдельные таски можно посмотреть в gulpfile.js
 
-## Задачи
-* сделать тесты для js
-* проверить и дописать линтеры
-* проверить gulp-chanded для js, vue файлов
-* vue-lint
 
+## Quasar selects docs
+    https://quasar.dev/vue-components/select
 
 
 

@@ -16,10 +16,6 @@ export default {
       set(value) {
         this.selected = value;
 
-        if (this.lastSelected.length === 0) {
-          this.lastSelected = this.selected;
-        }
-
         if (this.selected.length < this.lastSelected.length) {
           let arrLess = [];
           let diff = this.lastSelected.filter(x => !this.selected.includes(x));
