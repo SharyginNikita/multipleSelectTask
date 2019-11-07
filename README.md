@@ -22,9 +22,8 @@ Start template (Gulp + Webpack) for Pug, SCSS, JS, Vue
 * Отдельные таски можно посмотреть в gulpfile.js
 
 
-## Quasar selects docs
-    [Quasar select component](https://quasar.dev/vue-components/select) ````https://quasar.dev/vue-components/select````
-
+## Ссылки
+* Select компонент Quasar framework [Quasar select](https://quasar.dev/vue-components/select): ````https://quasar.dev/vue-components/select````
 
 
 
